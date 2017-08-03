@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Add a book</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
 </head>
+
 <body>
+<h1 th:text="${addbookmessage}">Add a product fallback to HTML</h1>
+
+<!-- ${foo} means refer to an object named foo -->
+<!-- action="#" is redundant here because we are using thmyeleaf -->
+<form action="#" th:action="@{/addbook}" th:object="${newbook}" method="post">
+    <!-- <p> tags below are just so that each field is on a diff line -->
+    <!-- type="text" means its expecting input that is text from user -->
+    <!-- *{price} is like 'this', it refers to the current product object -->
+    <!-- not a bad idea to ALWAYS use type="text" for compatibility, just cast it later -->
+
+    <p>SKU: <input type="text" th:field="*{sku}"/></p>
+    <p>Title: <input type="text" th:field="*{title}"/></p>
+    <p>Author: <input type="text" th:field="*{author}"/></p>
+    <p>Description: <input type="text" th:field="*{description}"/></p>
+    <p>Price: <input type="text" th:field="*{price}"/></p>
+
+
+        <input type="submit" value="Add Product"/>
+        <input type="reset" value="Reset"/>
+
+</form>
 
 </body>
+
 </html>
