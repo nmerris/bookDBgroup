@@ -51,16 +51,18 @@ public class MainController
     }
 
 
-
-    @PostMapping("/addbook")
-   public void postProduct(@ModelAttribute("addbook")
-
-                                      Book book, BindingResult bindingResult)
+   @PostMapping("/addbook")
+   public String postProduct(@ModelAttribute("newbook") Book book)
     {
-
-
         bookRepository.save(book); // save it to the db
-        //return "showproductdetails";
+        return "bookadditionconfirmation";
     }
+
+//
+//    @GetMapping("/bookadditionconfirmation")
+//    public String confirmBook()
+//    {
+//       return "bookadditionconfirmation";
+//    }
 
 }

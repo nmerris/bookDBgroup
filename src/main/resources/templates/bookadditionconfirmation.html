@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book details</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+</head>
+<body>
+<h1>Book added successfully</h1>
+
+<!--  -->
+<p th:text="'SKU: ' + ${newbook.sku}"/>
+<p th:text="'Title: ' + ${newbook.title}"/>
+<p th:text="'Item Code: ' + ${newbook.author}"/>
+<p th:text="'Description: ' + ${newbook.description}"/>
+<p th:text="'Price: ' + ${newbook.price}"/>
+
+
+<!--initiates a GET back to /addproduct-->
+<a href="/addbook">Add another book</a>
+</body>
+</html>
