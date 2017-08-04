@@ -60,29 +60,30 @@ public class MainController
     }
 
 
+    @GetMapping("/displayallbooks")
+    public String displayBooks(Model model)
+    {
+        Iterable<Book> bookList = bookRepository.findAll();
+        model.addAttribute("books",bookList);
+        return "displayallbooks";
 
+
+    }
     // this method is called when the user clicks on the LoadBooks link from the index page
     // there is no new page to go to, all it does is load the db with a list of predefined books
     // all this happens righ here
     @GetMapping("/loadbooks")
     public String loadExampleBooks()
     {
-
-
-
         // get all the books from out db
 //        Iterable<Book> bookList = bookRepository.findAll();
 
         // save all out books to the db in one shot
          bookRepository.save(loadSampleBooks());
          return null;
-
-
-
     }
 
     private ArrayList<Book> loadSampleBooks(){
-
 
         ArrayList<Book> myBooks = new ArrayList<Book>();
 
@@ -105,8 +106,6 @@ public class MainController
 
         return myBooks;
     }
-
-
 
 
 //
