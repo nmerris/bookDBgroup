@@ -7,15 +7,24 @@
 <body>
 <h1>All Books Displayed</h1>
 
-<table>
-<!--  -->
+<table th:background="blue">
+
+    <tr>
+        <td><p>SKU</p></td>
+        <td><p>Title</p></td>
+        <td><p>Author</p></td>
+        <td><p>Description</p></td>
+        <td><p>Price</p></td>
+    </tr>
+
+
     <th:block th:each="abook:${books}">
     <tr>
-        <td><p th:text="'SKU: ' + ${abook.sku}"/></td>
-        <td><p th:text="'Title: ' + ${abook.title}"/></td>
-        <td><p th:text="'Item Code: ' + ${abook.author}"/></td>
-        <td><p th:text="'Description: ' + ${abook.description}"/></td>
-        <td><p th:text="'Price: ' + ${abook.price}"/></td>
+        <td><p th:text="${abook.sku}"/></td>
+        <td><p th:text="${abook.title}"/></td>
+        <td><p th:text="${abook.author}"/></td>
+        <td><p th:text="${abook.description}"/></td>
+        <td><p th:text="${abook.price}"/></td>
     </tr>
     </th:block>
 </table>
