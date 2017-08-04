@@ -1,9 +1,13 @@
 package com.group.bookdatabase.model;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -14,10 +18,17 @@ public class Book
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotNull
     private String sku;
+    @NotNull
     private String title;
+    @NotNull
     private String author;
+    @NotNull
     private String description;
+    @Max(99)
+    @NotNull
     private double price;
 
 

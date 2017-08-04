@@ -53,8 +53,11 @@ public class MainController
     }
 
     @PostMapping("/addbook")
-    public String postProduct(@ModelAttribute("newbook") Book book)
+    public String postProduct(@Valid @ModelAttribute("newbook") Book book, BindingResult bindingResult)
     {
+        if (bindingResult.hasErrors()){
+            return "addbook";
+        }
         bookRepository.save(book); // save it to the db
         return "bookadditionconfirmation";
     }
@@ -80,7 +83,7 @@ public class MainController
 
         // save all out books to the db in one shot
          bookRepository.save(loadSampleBooks());
-         return null;
+         return "allbooksloadedconfirmation";
     }
 
     private ArrayList<Book> loadSampleBooks(){
