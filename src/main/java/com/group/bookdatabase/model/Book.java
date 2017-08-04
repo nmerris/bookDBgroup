@@ -1,6 +1,8 @@
 package com.group.bookdatabase.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
@@ -8,7 +10,9 @@ import javax.persistence.Id;
 public class Book
 {
 
+    // id will be used in the Book table as the key
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String sku;
     private String title;
